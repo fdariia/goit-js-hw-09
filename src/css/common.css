@@ -34,3 +34,8 @@ img {
 .label {
   font-weight: 500px;
 }
+
+[data-start] {
+  background-color: blue;
+  color: #fafafa;
+}
