@@ -5,7 +5,7 @@ const refs = {
 }
 
 const isActive = true;
-let timeoutID = null;
+let intervalID = null;
 refs.stopBtn.setAttribute('disabled', true);
 
 refs.startBtn.addEventListener('click', onStartBtn);
@@ -20,8 +20,7 @@ function onStartBtn() {
         refs.stopBtn.removeAttribute('disabled');
     }
 
-    refs.body.style.backgroundColor = getRandomHexColor();
-    timeoutID = setTimeout(onStartBtn, 1000);
+    intervalID = setInterval(() => {refs.body.style.backgroundColor = getRandomHexColor()}, 1000);
 }
 //Коли натискаємо на stopBtn то:
 // 1) кнопці додається атрибут disabled
@@ -32,7 +31,7 @@ function onStopBtn() {
         refs.startBtn.removeAttribute('disabled');
         refs.stopBtn.setAttribute('disabled', true);
     }
-    clearTimeout(timeoutID);  
+    clearInterval(intervalID);  
 }
 
 function getRandomHexColor() {
